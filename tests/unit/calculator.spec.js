@@ -23,4 +23,11 @@ describe('App.vue', () => {
     wrapper.vm.subtract('4');
     expect(wrapper.vm.runningTotal).to.equal(3)
   })
+
+  it('can multiply two numbers', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.previousTotal = 3
+    wrapper.vm.multiply('5');
+    expect(wrapper.vm.runningTotal).to.equal(15)
+  })
 })
