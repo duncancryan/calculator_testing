@@ -45,4 +45,16 @@ describe('App.vue', () => {
     wrapper.vm.numberClick('3');
     expect(wrapper.vm.runningTotal).to.equal(283)
   })
+
+  it('can chain multiple operations together', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.numberClick('2');
+    wrapper.vm.operatorClick('+');
+    wrapper.vm.numberClick('8');
+    wrapper.vm.operatorClick('*');
+    wrapper.vm.numberClick('3');
+    wrapper.vm.operatorClick('=');
+    expect(wrapper.vm.runningTotal).to.equal(30)
+    expect(wrapper.vm.previousOperator).to.equal(null)
+  })
 })
