@@ -37,4 +37,12 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '50')
   })
+
+  it('should be able to display negative numbers', () => {
+    cy.get('#number2').click();
+    cy.get('#operator_subtract').click();
+    cy.get('#number4').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '-2')
+  })
 })
