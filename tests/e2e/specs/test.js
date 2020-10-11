@@ -24,4 +24,17 @@ describe('calculator', () => {
     cy.get('#operator_subtract').click();
     cy.get('.display').should('contain', '6')
   })
+
+  it('should be able to chain together multiple operations and display the result', () => {
+    cy.get('#number2').click();
+    cy.get('#operator_add').click();
+    cy.get('#number4').click();
+    cy.get('#operator_subtract').click();
+    cy.get('#number1').click();
+    cy.get('#operator_multiply').click();
+    cy.get('#number1').click();
+    cy.get('#number0').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '50')
+  })
 })
