@@ -30,4 +30,11 @@ describe('App.vue', () => {
     wrapper.vm.multiply('5');
     expect(wrapper.vm.runningTotal).to.equal(15)
   })
+
+  it('can divide two numbers', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.previousTotal = 21
+    wrapper.vm.divide('7');
+    expect(wrapper.vm.runningTotal).to.equal(3)
+  })
 })
