@@ -16,4 +16,12 @@ describe('calculator', () => {
     cy.get('#number4').click();
     cy.get('.display').should('contain', '24')
   })
+
+  it('should update the display with the result of a calculation when an operator button is clicked to execute an operation', () => {
+    cy.get('#number2').click();
+    cy.get('#operator_add').click();
+    cy.get('#number4').click();
+    cy.get('#operator_subtract').click();
+    cy.get('.display').should('contain', '6')
+  })
 })
