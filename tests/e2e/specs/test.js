@@ -53,4 +53,21 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '2.5')
   })
+
+  it('should display very large numbers', () => {
+    cy.get('#number1').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('.display').should('contain', '1000000000000')
+  })
 })
