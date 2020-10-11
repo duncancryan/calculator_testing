@@ -56,5 +56,22 @@ describe('App.vue', () => {
     wrapper.vm.operatorClick('=');
     expect(wrapper.vm.runningTotal).to.equal(30)
     expect(wrapper.vm.previousOperator).to.equal(null)
+    expect(wrapper.vm.newTotal).to.equal(true)
+  })
+
+  it('can clear the running total without affecting the calculation', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.numberClick('2');
+    wrapper.vm.operatorClick('+');
+    wrapper.vm.numberClick('8');
+    wrapper.vm.operatorClick('*');
+    wrapper.vm.numberClick('3');
+    wrapper.vm.operatorClick('=');
+    wrapper.vm .numberClick('1');
+    wrapper.vm .numberClick('8');
+    wrapper.vm.clearClick();
+    expect(wrapper.vm.runningTotal).to.equal(0)
+    expect(wrapper.vm.previousTotal).to.equal(30)
+    expect(wrapper.vm.newTotal).to.equal(false)
   })
 })
