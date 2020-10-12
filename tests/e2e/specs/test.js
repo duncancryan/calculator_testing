@@ -70,4 +70,12 @@ describe('calculator', () => {
     cy.get('#number0').click();
     cy.get('.display').should('contain', '1000000000000')
   })
+
+  it("should return an error message when an attempt to divide by zero is made", () => {
+    cy.get('#number5').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number0').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', 'error')
+  })
 })
